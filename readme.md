@@ -9,3 +9,7 @@
   bundle exec script/console
   >> ActiveRecord::Base::connection
 
+### launch server
+
+  bundle exec script/server
+
