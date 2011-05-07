@@ -30,3 +30,7 @@
 
   bundle exec script/server
 
+### running tests
+
+   bundle exec script/spec spec
+
