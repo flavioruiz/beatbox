@@ -48,11 +48,12 @@ table {
 }
 body {
     font-family:Verdana;
+    color:#787878;
 }
 .search_form {
     width:100%;
     border:5px solid orange;
-    background-color:#6f6f6f;
+    background-color:#efefef;
 }
 .section {
     height:40px;
