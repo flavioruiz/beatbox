@@ -46,18 +46,27 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+body {
+    font-family:Verdana;
+}
 .search_form {
     width:100%;
     border:5px solid orange;
+    background-color:#e6e6e6;
 }
 .section {
-
+    height:30px;
 }
 .search_form label {
-
+    width:45%;
+    text-align:right;
+    display:inline-block;
 }
 .search_form input[type='text'] {
-
+    width:20%;
+    text-align:left;
+    height:28px;
+    font-size:20px;
 }
 .search_form input[type='submit'] {
 
@@ -76,4 +85,7 @@ table {
 }
 .h2 {
     font-size:30px;
+}
+.mb20 {
+    margin-bottom:20px;
 }
