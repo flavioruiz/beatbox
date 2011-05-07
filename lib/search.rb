@@ -10,17 +10,22 @@ class Search
 
     if name = params[:artist_name]
       candidates += repository.find_all do |entry|
-        entry[:media][:artist_name] == name
+        match_string(name,entry[:media][:artist_name])
       end
     end
 
     if name = params[:album_name]
       candidates += repository.find_all do |entry|
-        entry[:media][:album_name] == name
+        match_string(name,entry[:media][:album_name])
       end
     end
 
     return candidates.map { |x| x[:results] }.flatten
+  end
+
+  protected
+  def match_string(a,b)
+    a.downcase == b.downcase
   end
 
   REPOSITORY = [

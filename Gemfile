@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 gem 'rails', '2.3.8'
+gem 'json'
 
 group :production, :staging do
   gem "pg"
