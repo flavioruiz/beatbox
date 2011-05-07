@@ -71,3 +71,9 @@ table {
   -webkit-border-radius: 10px; /* Safari, Chrome */
   border-radius: 10px; /* CSS3 */
 }
+.center {
+    text-align:center;
+}
+.h2 {
+    font-size:20px;
+}
