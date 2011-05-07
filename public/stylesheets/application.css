@@ -47,7 +47,8 @@ table {
 	border-spacing: 0;
 }
 .search_form {
-
+    width:100%;
+    border:5px solid orange;
 }
 .section {
 
@@ -60,4 +61,13 @@ table {
 }
 .search_form input[type='submit'] {
 
+}
+.container {
+    width:960px;
+    margin:auto;
+}
+.rounded_corners {
+  -moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari, Chrome */
+  border-radius: 10px; /* CSS3 */
 }
