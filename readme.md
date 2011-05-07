@@ -22,7 +22,6 @@
 ### launch console
 
   bundle exec script/console
-  >> ActiveRecord::Base::connection
 
 ### launch server
 
