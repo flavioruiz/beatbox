@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
     return unless request.post? 
-    render(:json => current_search.resolve(params))
+    render :partial => 'search_results', :locals => {:response => current_search.resolve(params)}
   end
 end
