@@ -70,8 +70,17 @@ body {
     font-size:20px;
 }
 .search_form input[type='submit'] {
-
+    background-color: orange;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    width: 140px;
 }
+
 .container {
     width:960px;
     margin:auto;
