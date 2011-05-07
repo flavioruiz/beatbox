@@ -52,10 +52,10 @@ body {
 .search_form {
     width:100%;
     border:5px solid orange;
-    background-color:#e6e6e6;
+    background-color:#6f6f6f;
 }
 .section {
-    height:30px;
+    height:40px;
 }
 .search_form label {
     width:45%;
@@ -88,4 +88,7 @@ body {
 }
 .mb20 {
     margin-bottom:20px;
+}
+.mt20 {
+    margin-top:20px;
 }
