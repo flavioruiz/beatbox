@@ -46,6 +46,7 @@
          $.post('search/search_results', data, function(response_data){
             $('#result').html(response_data);
            });
+         return false;
         }); 
        });
    </script>
