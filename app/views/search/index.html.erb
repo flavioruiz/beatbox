@@ -44,9 +44,11 @@
        $('#submit').click(function(){
          var data = $('#search_form').serialize();
          $.post('search/search_results', data, function(response_data){
-          response_data['repository'][0]['results'].each(function(){
-            console.log(this['label']); 
-          });
+          $.each(response_data['repository'][0]['results'],(function(index, element){
+              console.log(element.label);
+              console.log(element.provider);
+              console.log(element.url);
+          }));
 
 
            //$('#results').html(response_data);
