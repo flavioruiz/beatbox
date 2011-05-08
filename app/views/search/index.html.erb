@@ -44,7 +44,7 @@
        $('#submit').click(function(){
          var data = $('search_form').serialize();
          $.post('search/search_results', data, function(response_data){
-            $('#result').html(response_data);
+            $('#results').html(response_data);
            });
          return false;
         }); 
