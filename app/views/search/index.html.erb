@@ -53,7 +53,7 @@ console.log(response_data);
 
            $enclosure.removeClass('success').removeClass('fail').addClass('success');
 
-           jQuery.each(response_data.results, function(index, r) {
+           jQuery.each(response_data, function(index, r) {
              var $a = $('<a>');
              $a.text(r.label);
              $a.attr('href', r.url);
