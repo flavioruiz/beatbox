@@ -8,7 +8,12 @@
   <%= form.text_field :amg_id %>
 </div>
 
-<h3><%= link_to("Add location",'#', :class => 'location-build') %></h3>
+<br />
+<br />
+
+<div class="center">
+  <h3><%= link_to("Add location",'#', :class => 'location-build') %></h3>
+</div>
 
 <div id="new-location-form" style="display: none;">
   <div class="section">
@@ -30,37 +35,43 @@
   </div>
 </div>
 
-<table class="location-list" style="width: 80%; margin: 0 auto;">
+<br />
 
-  <thead>
-    <th>Site</th>
-    <th>Label</th>
-    <th>URI</th>
-    <th width="30"></th>
-  </thead>
-  <tbody>
+<div class="offer-section">
+  <table class="location-list" style="width: 100%;">
 
-    <% if @offer.locations.size == 0 %>
-    <tr>
-      <td id="empty-message" colspan="4" class="center">
-        No locations added yet.
-      </td>
-    </tr>
-    <% end %>
+    <thead>
+      <th>Site</th>
+      <th>Label</th>
+      <th>URI</th>
+      <th width="30"></th>
+    </thead>
+    <tbody>
 
-    <% for location in @offer.locations %>
+      <% if @offer.locations.size == 0 %>
       <tr>
-        <td><%= h(location.site) %></td>
-        <td><%= h(location.label) %></td>
-        <td><%= link_to(location.uri) %></td>
-        <td>
-          <%= hidden_field_tag("locations[]",location.id)   %>
-          <%= link_to("x",'#', :class => 'location-remove') %>
+        <td id="empty-message" colspan="4" class="center">
+          No locations added yet.
         </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+
+      <% for location in @offer.locations %>
+        <tr>
+          <td><%= h(location.site) %></td>
+          <td><%= h(location.label) %></td>
+          <td><%= link_to(location.uri) %></td>
+          <td>
+            <%= hidden_field_tag("locations[]",location.id)   %>
+            <%= link_to("x",'#', :class => 'location-remove') %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br/>
 
 <script type="text/javascript">
   $(document).ready(function(){
@@ -86,7 +97,7 @@
       return false;
     });
 
-    $('.location-list a.location-cancel').click(function(){
+    $('a.location-cancel').click(function(){
       closeForm();
       return false;
     });

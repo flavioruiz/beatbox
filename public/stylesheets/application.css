@@ -215,3 +215,12 @@ table th {
 }
 #header a {
 }
+
+.offer-section {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.offer-section table {
+  width: 100%;
+}
