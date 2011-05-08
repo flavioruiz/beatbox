@@ -12,20 +12,20 @@
 
 <body>
     <div id='container' class='container'>
-      <div id="header">
+      <div id="header" class='mb20'>
         <ul class="header-left">
           <li>
-            <%= link_to("home","/") %>
+            <%= link_to("Home","/") %>
           </li>
         </ul>
         <ul class="header-right">
           <% if current_user %>
-            <li><%= link_to("offers" ,offers_path) %></li>
-            <li><%= link_to("account",account_path) %></li>
-            <li><%= link_to("logout" ,user_session_path, :method => :delete) %></li>
+            <li><%= link_to("Offers" ,offers_path) %></li>
+            <li><%= link_to("Account",account_path) %></li>
+            <li><%= link_to("Logout" ,user_session_path, :method => :delete) %></li>
           <% else %>
-            <li><%= link_to("login" ,new_user_session_path) %></li>
-            <li><%= link_to("signup",new_account_path)      %></li>
+            <li><%= link_to("Login" ,new_user_session_path) %></li>
+            <li><%= link_to("Signup",new_account_path)      %></li>
           <% end %>
         </ul>
       </div>
