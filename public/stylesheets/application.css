@@ -248,3 +248,9 @@ margin-top: 20px;
     color: red;
     height: 35px;
 }
+#spinner {
+  text-align:center;
+}
+#spinner img {
+  vertical-align:top;
+}
