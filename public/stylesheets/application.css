@@ -60,13 +60,16 @@ body {
 
 .description {
   font-size: 90%;
+  line-height: 1.35em;
   clear: both;
 }
 
 .section {
     height:40px;
 }
-.label_tag {
+
+.label_tag, 
+.label_spacer {
     width: 200px;
     text-align:right;
     display:inline-block;
@@ -83,7 +86,8 @@ body {
     font-size:20px;
 }
 
-input[type='text'] {
+input[type='text'],
+input[type='password'] {
   font-size: 120%;
   height: 25px;
   width: 300px;
