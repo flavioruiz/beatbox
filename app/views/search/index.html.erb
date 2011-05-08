@@ -30,11 +30,12 @@
     <%= label_tag 'track_isrc', 'Track ISRC', :class => 'label_tag' %> 
     <%= text_field :search, :track_isrc, :class => 'text_field'  %>
   </div>
-  <div class="section form_control">
-    <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
-  </div>
   <div id="spinner" style='display:none;'>
     <%= image_tag 'ajax-loader.gif'  %> ............. loading
+  </div>
+
+  <div class="section form_control">
+    <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
   </div>
 <% end %>
 
