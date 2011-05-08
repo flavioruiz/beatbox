@@ -1,4 +1,4 @@
-<form id="search_form" class="search_form rounded_corners" method="post" action="search_results">
+<% form_remote_tag :url => { :controller => :search, :action => :search_results }, :id => "search_form", :class => "search_form rounded_corners"%>
    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
     <h2 class='h2 center mb20 mt20'>Target Information</h2>  
@@ -34,8 +34,7 @@
     <div class="section">
         <%= submit_tag 'Submit', :class => 'rounded_corners mt20' %>
     </div>
-</form>
-
+  <% end %>
 <div id="results">
     
 </div>
