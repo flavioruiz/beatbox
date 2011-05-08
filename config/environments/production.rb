@@ -26,3 +26,14 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+BEATMAP = {
+  :rovi => {
+    :url         => 'http://api.rovicorp.com',
+    :key         => 'a26838bw349af7752zr796a7',
+    :secret      => 'YGvUSeMXx8'
+  },
+  :itunes => {
+    :url => 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa'
+  }
+}

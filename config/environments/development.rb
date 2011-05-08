@@ -15,3 +15,14 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+BEATMAP = {
+  :rovi => {
+    :url         => 'http://api.rovicorp.com',
+    :key         => 'a26838bw349af7752zr796a7',
+    :secret      => 'YGvUSeMXx8'
+  },
+  :itunes => {
+    :url => 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa'
+  }
+}
