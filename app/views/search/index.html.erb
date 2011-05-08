@@ -1,3 +1,7 @@
+  <script>
+    beatbox.init();
+  </script>
+
 <% form_tag url_for(:controller => :search, :action => :search_results ), :id => "search_form" do %>
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
@@ -26,44 +30,47 @@
     <%= label_tag 'track_isrc', 'Track ISRC', :class => 'label_tag' %> 
     <%= text_field :search, :track_isrc, :class => 'text_field'  %>
   </div>
-  <!-- 
-  <h2 class='h2 center mb20 mt20'>Affiliate Information</h2>
-  <div class="section">
-    <%#= label_tag 'amazon_affiliate', 'Amazon' %> 
-    <%#= text_field :search, :amazon_affiliate  %>
-  </div>
-  <div class="section">
-    <%#= label_tag 'itunes_affiliate', 'iTunes' %> 
-    <%#= text_field :search, :itunes_affiliate  %>
-  </div> -->
   <div class="section">
     <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
   </div>
 <% end %>
-<form id="results">
+<div id="results">
     
-</form>
+</div>
    <script type="text/javascript" charset="utf-8">
      $(document).ready(function(){
        $('#submit').click(function(){
          var data = $('#search_form').serialize();
-         $.post('search/search_results', data, function(response_data){
-          $.each(response_data['repository'][0]['results'],(function(index, element){
-              console.log(element.label);
-              console.log(element.provider);
-              console.log(element.url);
-          }));
+      beatbox.search(data, function(response_data) {
+        $container = $('#results');
 
+        if (data.length == 0) {
+          $container.text('Not available online.');
+          return;
+        }
 
-           //$('#results').html(response_data);
-    
-           });
-         return false;
-        }); 
-       });
-   function parseResponse(response) {
-     response.each(function(){
+        $container.text('Buy: ');
         
-     });  
-   } 
+        jQuery.each(data, function(index, r) {
+          var $a = $('<a>');
+          $a.text(r.label);
+          $a.attr('href', r.url);
+
+          $container.append($a, '&nbsp;&nbsp;'); 
+        });
+      });
+  /*         $.post('search/search_results', data, function(response_data){
+            $.each(response_data['repository'][0]['results'],(function(index, element){
+                console.log(element.label);
+                console.log(element.provider);
+                console.log(element.url);
+            }));
+
+
+             //$('#results').html(response_data);
+      
+             }); */
+           return false;
+          }); 
+         });
    </script>
