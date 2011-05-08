@@ -178,8 +178,8 @@ h2 {
   border-radius: 10px 0 5px 0; /* CSS3 */
 }
 .success {
-  color:green;
+  border-color:green;
 }
 .fail {
-  color:red;
+  border-color:red;
 }
