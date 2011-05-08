@@ -56,13 +56,13 @@
 
            jQuery.each(response_data, function(index, r) {
              var $section = $('<div>');
-             container.attr('class':'section');
+             $section.attr('class':'section');
              var $a = $('<a>');
              $a.text(r.label);
              $a.attr('href', r.url);
              $section.append($a); 
 
-             $container.append($secton); 
+             $container.append($sectoon); 
              });
       });
            return false;
