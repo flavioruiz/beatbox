@@ -47,29 +47,46 @@ table {
 	border-spacing: 0;
 }
 body {
-    font-family:Verdana;
-    color:#787878;
+    font-family:Tahoma;
+    color:#282828;
+    font-size: 14px;
 }
 
 .content {
-    width:100%;
     border:5px solid orange;
     background-color:#efefef;
+    padding: 20px 10px;
+}
+
+.description {
+  font-size: 90%;
+  clear: both;
 }
 
 .section {
     height:40px;
 }
 .label_tag {
-    width:40%;
+    width: 200px;
     text-align:right;
     display:inline-block;
+    margin-right: 20px;
 }
+
+.label_tag:after {
+  content: ':';
+}
+
 .text_field {
-    width:35%;
     text-align:left;
     height:28px;
     font-size:20px;
+}
+
+input[type='text'] {
+  font-size: 120%;
+  height: 25px;
+  width: 300px;
 }
 
 input[type='submit'] {
@@ -96,9 +113,6 @@ input[type='submit'] {
 .center {
     text-align:center;
 }
-.h2 {
-    font-size:30px;
-}
 .mb20 {
     margin-bottom:20px;
 }
@@ -107,8 +121,8 @@ input[type='submit'] {
 }
 
 #header {
-  width:100%;
   height:40px;
+  padding: 0px 10px;
 }
 
 #header ul.header-left {
@@ -124,5 +138,23 @@ input[type='submit'] {
 
 #header li {
   display:inline;
+  padding-right: 10px;
 }
 
+#header li:last-child {
+  padding-right: 0px;
+}
+
+
+a, a:visited {
+  color: #000;
+}
+
+a:hover {
+  color: #995533;
+}
+
+h2 {
+  font-size: 200%;
+  margin-bottom: 10px; 
+}

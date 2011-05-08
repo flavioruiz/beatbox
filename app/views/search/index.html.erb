@@ -1,41 +1,45 @@
 <% form_tag url_for(:controller => :search, :action => :search_results ), :id => "search_form" do %>
-   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
-    <h2 class='h2 center mb20 mt20'>Target Information</h2>  
-    <div class="section">
-      <%= label_tag 'artist_name', 'Artist Name', :class => 'label_tag' %> 
-        <%= text_field :search, :artist_name, :class => 'text_field'  %>
-    </div>
-    <div class="section">
-      <%= label_tag 'album_name', 'Album Name', :class => 'label_tag' %> 
-        <%= text_field :search, :album_name, :class => 'text_field'  %>
-    </div>
-    <div class="section">
-        <%= label_tag 'album_upc', 'Album UPC', :class => 'label_tag' %> 
-        <%= text_field :search, :album_upc, :class => 'text_field'  %>
-    </div>
-    <div class="section">
-        <%= label_tag 'track_name', 'Track Name', :class => 'label_tag' %> 
-        <%= text_field :search, :track_name, :class => 'text_field'  %>
-    </div>
-    <div class="section">
-        <%= label_tag 'track_isrc', 'Track ISRC', :class => 'label_tag' %> 
-        <%= text_field :search, :track_isrc, :class => 'text_field'  %>
-      </div>
-    <!-- 
-    <h2 class='h2 center mb20 mt20'>Affiliate Information</h2>
-    <div class="section">
-        <%#= label_tag 'amazon_affiliate', 'Amazon' %> 
-        <%#= text_field :search, :amazon_affiliate  %>
-    </div>
-    <div class="section">
-        <%#= label_tag 'itunes_affiliate', 'iTunes' %> 
-        <%#= text_field :search, :itunes_affiliate  %>
-      </div> -->
-    <div class="section">
-      <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
-    </div>
-  <% end %>
+  <h2>Search:</h2>  
+  <p class="description mb20">
+    Search the web for where music is sold and we'll do what we can to connect you with people who are selling it.  
+  </p>
+    
+  <div class="section">
+    <%= label_tag 'artist_name', 'Artist Name', :class => 'label_tag' %> 
+    <%= text_field :search, :artist_name, :class => 'text_field'  %>
+  </div>
+  <div class="section">
+    <%= label_tag 'album_name', 'Album Name', :class => 'label_tag' %> 
+    <%= text_field :search, :album_name, :class => 'text_field'  %>
+  </div>
+  <div class="section">
+    <%= label_tag 'album_upc', 'Album UPC', :class => 'label_tag' %> 
+    <%= text_field :search, :album_upc, :class => 'text_field'  %>
+  </div>
+  <div class="section">
+    <%= label_tag 'track_name', 'Track Name', :class => 'label_tag' %> 
+    <%= text_field :search, :track_name, :class => 'text_field'  %>
+  </div>
+  <div class="section">
+    <%= label_tag 'track_isrc', 'Track ISRC', :class => 'label_tag' %> 
+    <%= text_field :search, :track_isrc, :class => 'text_field'  %>
+  </div>
+  <!-- 
+  <h2 class='h2 center mb20 mt20'>Affiliate Information</h2>
+  <div class="section">
+    <%#= label_tag 'amazon_affiliate', 'Amazon' %> 
+    <%#= text_field :search, :amazon_affiliate  %>
+  </div>
+  <div class="section">
+    <%#= label_tag 'itunes_affiliate', 'iTunes' %> 
+    <%#= text_field :search, :itunes_affiliate  %>
+  </div> -->
+  <div class="section">
+    <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
+  </div>
+<% end %>
 <form id="results">
     
 </form>
