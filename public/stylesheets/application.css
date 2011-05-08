@@ -177,3 +177,9 @@ h2 {
   -webkit-border-radius: 10px 0 5px 0; /* Safari, Chrome */
   border-radius: 10px 0 5px 0; /* CSS3 */
 }
+.success {
+  color:green;
+}
+.fail {
+  color:red;
+}
