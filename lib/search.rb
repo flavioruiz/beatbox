@@ -1,3 +1,5 @@
+require 'timeout'
+
 class Search
   attr_reader(:repository)
 
@@ -50,20 +52,24 @@ class Search
     if params[:artist_name] and params[:album_name]
       search_term = CGI.escape("#{params[:artist_name]} #{params[:album_name]}")
 
-      amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amgAlbumId]
+      Timeout::timeout(5) do
+        amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amgAlbumId]
 
-      itunes_url = amgAlbumId ? @itunes.album_url_by_id(amgAlbumId.split(' ').last) : nil
-      itunes_url ||= @itunes.album_url_by_name(params[:album_name], params[:artist_name])
-      itunes_url ||= @itunes.artist_url_by_name(params[:artist_name])
-      itunes_url ||= "#{BEATMAP[:itunes][:url]}/wsSearch?term=#{search_term}"
+        itunes_url = amgAlbumId ? @itunes.album_url_by_id(amgAlbumId.split(' ').last) : nil
+        itunes_url ||= @itunes.album_url_by_name(params[:album_name], params[:artist_name])
+        itunes_url ||= @itunes.artist_url_by_name(params[:artist_name])
+        # itunes_url ||= "#{BEATMAP[:itunes][:url]}/wsSearch?term=#{search_term}"
 
-      candidates << {
-        :results => {
-          :url      => itunes_url,
-          :provider => :itunes,
-          :label    => 'Buy from iTunes'
-        }
-      }
+        if itunes_url
+          candidates << {
+            :results => {
+              :url      => itunes_url,
+              :provider => :itunes,
+              :label    => 'Buy from iTunes'
+            }
+          }
+        end
+      end
 
       candidates << {
         :results => {
