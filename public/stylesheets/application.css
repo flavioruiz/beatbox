@@ -216,11 +216,13 @@ table th {
 #header a {
   background: orange;
   color: white;
-  padding: 20px 30px;
+  padding: 10px 30px;
   font-size: 20px;
   text-decoration: none;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-
+#header a:hover {
+  text-decoration:underline;
+}
