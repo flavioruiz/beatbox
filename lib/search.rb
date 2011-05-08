@@ -22,7 +22,7 @@ class Search
 
     offers = candidates.map { |x| x[:results] }.flatten
 
-    return { :offers => offers }
+    return offers
   end
 
   protected

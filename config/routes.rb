@@ -8,8 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource(:account, :controller => :users)
   map.resources(:users)
 
-  map.connect("/search", :controller => :search, :method => :index)
-  map.connect("/search/search_results", :controller => :search, :method => :search_results)
+  map.connect("/search", :controller => :search, :action => :index)
+  map.connect("/search/search_results", :controller => :search, :action => :search_results)
 
   map.root(:controller => :search, :action => :index)
 
