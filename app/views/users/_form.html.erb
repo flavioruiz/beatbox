@@ -15,3 +15,8 @@
   <%= form.password_field :password_confirmation %>
 </div>
 <%= field_error_message(@user, :password_confirmation) %>
+<div class="section">
+  <%= form.label :artist_name, 'Artist Name', :class => :label_tag %>
+  <%= form.text_field :artist_name %>
+</div>
+<%= field_error_message(@user, :artist_name) %>
