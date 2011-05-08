@@ -45,7 +45,7 @@
 console.log(response_data);
            $container = $('#body_of_results');
 
-           if (response_data.results.length == 0) {
+           if (response_data.length == 0) {
            $enclosure.removeClass('success').removeClass('fail').addClass('fail');
            $container.text('Not available online.');
            return;
