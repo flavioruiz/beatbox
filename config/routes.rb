@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect("/search", :controller => :search, :method => :index)
   map.connect("/search/search_results", :controller => :search, :method => :search_results)
 
-  #map.root(:controller => :search, :action => :index)
+  map.root(:controller => :search, :action => :index)
 
   # The priority is based upon order of creation: first created -> highest priority.
 
