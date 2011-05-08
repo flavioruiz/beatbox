@@ -20,7 +20,9 @@ class Search
       end
     end
 
-    return candidates.map { |x| x[:results] }.flatten
+    offers = candidates.map { |x| x[:results] }.flatten
+
+    return { :offers => offers }
   end
 
   protected

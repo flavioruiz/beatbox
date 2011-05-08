@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 gem 'rails', '2.3.8'
 gem 'json'
+gem 'authlogic', '2.1.6'
 
 group :production, :staging do
   gem "pg"

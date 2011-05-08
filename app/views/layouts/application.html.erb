@@ -11,9 +11,27 @@
 
 <body>
     <div id='container' class='container'>
+      <div id="header">
+        <ul class="header-left">
+          <li>
+            <%= link_to("home","/") %>
+          </li>
+        </ul>
+        <ul class="header-right">
+          <% if current_user %>
+            <li><%= link_to("account",account_path) %></li>
+            <li><%= link_to("logout",user_session_path, :method => :delete) %></li>
+          <% else %>
+            <li><%= link_to("login" ,new_user_session_path) %></li>
+            <li><%= link_to("signup",new_account_path)      %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div id="content" class="content rounded_corners">
         <%= yield %>
+      </div>
+
     </div>    
 </body>
 </html>
-
-
