@@ -184,5 +184,13 @@ h2 {
   border-color:red;
 }
 #header a {
-  
+  background: orange;
+  color: white;
+  padding: 20px 30px;
+  font-size: 20px;
+  text-decoration: none;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
+
