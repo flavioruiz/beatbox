@@ -1,0 +1,53 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/javascripts/beatbox.js"></script>
+
+  <script>
+    beatbox.init({ 'amazon': 'amazonaffiliatecode', 'test': 'hi', 'itunes': 'itunesaffiliatecode' }, 'http://localhost:3000')
+  </script>
+
+  <style>
+    .player {
+      height: 200px;
+      width: 200px;
+      border: 1px solid black;
+      background: #eee;
+      text-align: center;
+    }
+    .player div {
+      margin-top: 75px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="player">
+    <div>THE PLAYER YO </div>
+  </div>
+  <div id="buy-links"></div>
+  
+  <script>
+    beatbox.search({ artist_name: 'DJ Quik' }, function(data) {
+      $container = $('#buy-links');
+
+      if (data.length == 0) {
+        $container.text('Buy: ');
+        return;
+      }
+
+      $container.text('Buy: ');
+      
+      jQuery.each(data, function(index, r) {
+        var $a = $('<a>');
+        $a.text(r.label);
+        $a.attr('href', r.url);
+
+        $container.append($a, '&nbsp;&nbsp;'); 
+      });
+    });
+  </script>
+
+</body>
+</html>
