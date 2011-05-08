@@ -162,3 +162,19 @@ h2 {
   font-size: 200%;
   margin-bottom: 10px; 
 }
+
+/* Corner position button quick fixes */
+#content {
+  position: relative;
+}
+.form_control {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.form_control .rounded_corners {
+  margin-top: 0;
+  -moz-border-radius: 10px 0 5px 0; /* Firefox */
+  -webkit-border-radius: 10px 0 5px 0; /* Safari, Chrome */
+  border-radius: 10px 0 5px 0; /* CSS3 */
+}
