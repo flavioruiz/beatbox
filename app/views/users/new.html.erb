@@ -1,4 +1,11 @@
-<h1>Register</h1>
+<h2>Register</h2> 
+
+<p class="description mb20"> 
+  Sign-up if you're an artist who'd like to control the way your music is sold.
+  By creating an account you will be able to create associations with your music 
+  by band name, album name, track name or a number other associations.
+</p>
+
 <% form_for @user, :url => account_path do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
