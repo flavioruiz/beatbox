@@ -42,23 +42,23 @@
        $('#submit').click(function(){
          var data = $('#search_form').serialize();
          console.log(data);
-      beatbox.search(data, function(response_data) {
-        $container = $('#results');
+         beatbox.search(data, function(response_data) {
+           $container = $('#results');
 
-        if (response_data.length == 0) {
-          $container.text('Not available online.');
-          return;
-        }
+           if (response_data.length == 0) {
+           $container.text('Not available online.');
+           return;
+           }
 
-        $container.text('Buy: ');
-        
-        jQuery.each(response_data, function(index, r) {
-          var $a = $('<a>');
-          $a.text(r.label);
-          $a.attr('href', r.url);
+           $container.text('Buy: ');
 
-          $container.append($a, '&nbsp;&nbsp;'); 
-        });
+           jQuery.each(response_data, function(index, r) {
+             var $a = $('<a>');
+             $a.text(r.label);
+             $a.attr('href', r.url);
+
+             $container.append($a, '&nbsp;&nbsp;'); 
+             });
       });
   /*         $.post('search/search_results', data, function(response_data){
             $.each(response_data['repository'][0]['results'],(function(index, element){
