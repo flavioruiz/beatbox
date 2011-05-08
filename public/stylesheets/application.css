@@ -249,7 +249,10 @@ margin-top: 20px;
     height: 35px;
 }
 #spinner {
-  text-align:center;
+text-align: right;
+width: 60%;
+display: inline-block;
+margin-top: 25px;
 }
 #spinner img {
   vertical-align:top;
