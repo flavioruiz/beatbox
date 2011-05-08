@@ -45,7 +45,7 @@
 
            $container = $('#body_of_results');
 
-           if (response_data.length == 0) {
+           if (response_data.results.length == 0) {
            $enclosure.removeClass('success').removeClass('fail').addClass('fail');
            $container.text('Not available online.');
            return;
@@ -53,7 +53,7 @@
 
            $enclosure.removeClass('success').removeClass('fail').addClass('success');
 
-           jQuery.each(response_data, function(index, r) {
+           jQuery.each(response_data.results, function(index, r) {
              var $a = $('<a>');
              $a.text(r.label);
              $a.attr('href', r.url);
