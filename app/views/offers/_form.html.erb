@@ -1,0 +1,120 @@
+<%= form.label :name %><br />
+<%= form.text_field :name %><br />
+
+<%= form.label :amg_id  %>
+<%= form.text_field :amg_id %><br />
+
+<table class="location-list">
+  <caption>Locations <%= link_to("add",'#', :class => 'location-build') %></caption>
+
+  <thead>
+    <th>Site </th>
+    <th>Label</th>
+    <th>URI  </th>
+    <th></th>
+  </thead>
+  <tbody>
+
+    <tr id="new-location-form" style="display:none">
+      <td colspan="4">
+        <div class="section">
+          <%= label_tag(:lbuild_site,"Site") %>
+          <%= text_field_tag(:lbuild_site) %>
+        </div>
+        <div class="section">
+          <%= label_tag(:lbuild_label,"Label") %>
+          <%= text_field_tag(:lbuild_label) %>
+        </div>
+        <div class="section">
+          <%= label_tag(:lbuild_uri,"URI") %>
+          <%= text_field_tag(:lbuild_uri) %>
+        </div>
+        <div class="section">
+          <%= link_to("add", '#', :class => 'location-add') %>
+          <%= link_to("cancel", '#', :class => 'location-cancel') %>
+        </div>
+      </td>
+    </tr>
+
+    <% for location in @offer.locations %>
+      <tr>
+        <td><%= h(location.site) %></td>
+        <td><%= h(location.label) %></td>
+        <td><%= link_to("link",location.uri) %></td>
+        <td>
+          <%= hidden_field_tag("locations[]",location.id)   %>
+          <%= link_to("x",'#', :class => 'location-remove') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    function closeForm() {
+      $('#lbuild_site').val('');
+      $('#lbuild_label').val('');
+      $('#lbuild_uri').val('');
+      $('#new-location-form').fadeOut('fast');
+    }
+
+    function removeRow(element) {
+      $(element).closest('tr').remove();
+    }
+
+    $('.location-list a.location-remove').click(function(){
+      removeRow(this);
+      return false;
+    });
+
+    $('.location-list a.location-build').click(function(){
+      $('#new-location-form').fadeIn('fast');
+      return false;
+    });
+
+    $('.location-list a.location-cancel').click(function(){
+      closeForm();
+      return false;
+    });
+
+    $('.location-list a.location-add').click(function(){
+      var site  = $('#lbuild_site').val();
+      var label = $('#lbuild_label').val();
+      var uri   = $('#lbuild_uri').val();
+
+      var row   = $('<tr></tr>');
+
+      var col   = $('<td></td>').html(site);
+
+      row.append(col)
+
+      row.append($('<td></td>').html(label));
+      row.append($('<td></td>').html('<a href="'+uri+'">link</a>'));
+
+      var input  = '<input type="hidden" name="lnew[][site]"  value="' + site  + '" />';
+          input += '<input type="hidden" name="lnew[][label]" value="' + label + '" />';
+          input += '<input type="hidden" name="lnew[][uri]"   value="' + uri   + '" />';
+
+      var xbutton = $('<a href="#">x</a>');
+      xbutton.click(function(){ 
+        removeRow(this);
+        return false;
+      });
+
+      col = $('<td></td>');
+      col.append(input);
+      col.append(xbutton);
+      row.append(col);
+
+      $('.location-list tbody').append(row);
+
+      return false;
+    });
+
+  });
+
+</script>
+
+

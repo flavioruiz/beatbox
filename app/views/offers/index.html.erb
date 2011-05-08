@@ -1,0 +1,29 @@
+<div>
+
+  <div class="offers-header">
+    <ul>
+      <li><%= link_to("create",new_offer_path) %></li>
+    </ul>
+  </div>
+
+  <table>
+    <thead>
+      <th>Album Name</th>
+      <th></th>
+    </thead>
+
+    <tbody>
+      <% for offer in @offers %>
+        <tr>
+          <td>
+            <%= link_to(h(offer.name),offer_path(offer)) %>
+          </td>
+          <td>
+            <%= link_to("delete",offer_path(offer), :method => :delete) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+</div>
