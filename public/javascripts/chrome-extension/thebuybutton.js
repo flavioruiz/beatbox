@@ -35,7 +35,7 @@ $(document).ready(function(){
 
         if(album) {
           request  += artist ? "&" : "?";
-          request  += encodeURIComponent(album)
+          request  += "album_name" + encodeURIComponent(album)
         }
 
         console.log('request' + request);
