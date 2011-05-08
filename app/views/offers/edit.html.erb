@@ -3,6 +3,9 @@
 <% form_for @offer, :url => offer_path(@offer) do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
-  <%= f.submit "Update", :class => :rounded_corners %>
+
+  <div class="section form_control">
+    <%= f.submit "Update", :class => 'rounded_corners mt20' %>
+  </div>
 <% end %>
 

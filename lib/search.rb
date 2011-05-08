@@ -10,6 +10,44 @@ class Search
 
   # artist_name, album_name, album_amg_id
   def resolve(params = {})
+    candidates = find_overrides(params)
+    return candidates if candidates.any?
+    return find_by_api(params)
+  end
+
+  def find_overrides(params)
+    return [] unless %w{album_amg_id artist_name album_name}.any? { |x| params[x.to_sym].blank? }
+
+    if x = params[:artist_name]
+      artist = User::find(:first, :conditions => { :artist_name => x})
+      offers = artist.offers if artist
+    end
+
+    offers ||= Offer::Album.scoped({})
+
+    if x = params[:album_amg_id]
+      offers = offers.scoped(:conditions => { :amg_id => x })
+    end
+
+    if x = params[:album_name]
+      offers = offers.scoped(:conditions => [ "offers.name LIKE ?", "%#{x}%"])
+    end
+
+    offers = offers.first(5).map do |offer|
+      locations = offer.locations.map do |location|
+        {
+          :provider => location.site  ,
+          :label    => location.label ,
+          :url      => location.label ,
+        }
+      end
+      { :results => locations }
+    end
+
+    return offers
+  end
+
+  def find_by_api(params)
     candidates = []
 
     if name = params[:artist_name]
