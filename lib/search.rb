@@ -51,13 +51,28 @@ class Search
     candidates = []
 
     if params[:artist_name] and params[:album_name]
+      amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amg_album_id].split(' ').last
+
+      itunes_url = @itunes.album_url_by_id(amgAlbumId)
+      itunes_url ||= @itunes.album_url_by_name(params[:album_name], params[:artist_name])
+
       candidates << {
         :results => {
-          :url      => @itunes.album_url_by_name(params[:album_name], params[:artist_name]),
+          :url      => itunes_url,
           :provider => :itunes,
           :label    => 'buy from iTunes'
         }
       }
+
+      search_term = CGI.escape("#{params[:artist_name]} #{params[:album_name]}")
+      candidates << {
+        :results => {
+          :url      => "http://www.amazon.com/s/?url=search-alias%3Daps&field-keywords=#{search_term}&tag=p4kalbrevs-20",
+          :provider => :amazon,
+          :label    => 'buy from Amazon'
+        }
+      }
+
     end
 
     offers = candidates.map { |x| x[:results] }.flatten
