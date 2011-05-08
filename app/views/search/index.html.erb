@@ -46,7 +46,7 @@
            $('#spinner').show();
          beatbox.search({ 'artist_name' : $('#search_artist_name').val(), 'album_name' : $('#search_album_name').val()}, function(response_data) {
 
-             $('spinner').hide(); 
+           $('#spinner').hide(); 
            $enclosure = $('#results');
            $enclosure.show();
            $container = $('#body_of_results');
