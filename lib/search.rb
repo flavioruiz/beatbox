@@ -3,8 +3,12 @@ class Search
 
   def initialize(repository)
     @repository = repository
+
+    @rovi = Beatmap::Site::Rovi.new(BEATMAP[:rovi])
+    @itunes = Beatmap::Site::ITunes.new(BEATMAP[:itunes])
   end
 
+  # artist_name, album_name, album_amg_id
   def resolve(params = {})
     candidates = find_overrides(params)
     return candidates if candidates.any?
@@ -69,7 +73,7 @@ class Search
   end
 
   REPOSITORY = [
-    { 
+    {
       :media => {
         :artist_name => "DJ Quik",
         :album_name  => "The Book Of David",

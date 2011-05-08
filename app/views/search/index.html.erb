@@ -42,6 +42,7 @@
          beatbox.search({ 'artist_name' : $('#search_artist_name').val(), 'album_name' : $('#search_album_name').val()}, function(response_data) {
            $enclosure = $('#results');
            $enclosure.show();
+           $container.text('');
 
            $container = $('#body_of_results');
 
@@ -52,7 +53,6 @@
            }
 
            $enclosure.removeClass('success').removeClass('fail').addClass('success');
-//            $container.text('Buy: ');
 
            jQuery.each(response_data, function(index, r) {
              var $a = $('<a>');
