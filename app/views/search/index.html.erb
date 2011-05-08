@@ -1,5 +1,5 @@
   <script>
-    beatbox.init();
+    beatbox.init({ 'amazon': 'amazonaffiliatecode', 'test': 'hi', 'itunes': 'itunesaffiliatecode' });
   </script>
 
 <% form_tag url_for(:controller => :search, :action => :search_results ), :id => "search_form" do %>
@@ -41,6 +41,7 @@
      $(document).ready(function(){
        $('#submit').click(function(){
          var data = $('#search_form').serialize();
+         console.log(data);
       beatbox.search(data, function(response_data) {
         $container = $('#results');
 
