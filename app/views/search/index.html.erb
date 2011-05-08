@@ -33,13 +33,20 @@
   <div class="section form_control">
     <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
   </div>
+  <div id="spinner" style='display:none;'>
+    Loading ...
+  </div>
 <% end %>
 
 
    <script type="text/javascript" charset="utf-8">
      $(document).ready(function(){
        $('#submit').click(function(){
+
+           $('#spinner').show();
          beatbox.search({ 'artist_name' : $('#search_artist_name').val(), 'album_name' : $('#search_album_name').val()}, function(response_data) {
+
+           $('#spinner').hide(); 
            $enclosure = $('#results');
            $enclosure.show();
            $container = $('#body_of_results');
