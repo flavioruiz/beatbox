@@ -1,0 +1,7 @@
+<h1>Create Offer</h1>
+<% form_for @offer, :url => offers_path do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit("Create", :class => :rounded_corner ) %>
+<% end %>
+

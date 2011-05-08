@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource(:user_session)
   map.resource(:account, :controller => :users)
   map.resources(:users)
+  map.resources(:offers)
 
   map.connect("/search", :controller => :search, :action => :index)
   map.connect("/search/search_results", :controller => :search, :action => :search_results)

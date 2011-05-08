@@ -1,36 +1,38 @@
 <h2>Account</h2>
 
-<div >
+<div>
   <label class="label_spacer">Login:</label>
   <%=h @user.email %>
 </div>
 
-<div >
+<div>
   <label class="label_spacer">Login count:</label>
   <%=h @user.login_count %>
 </div>
 
-<div >
+<div>
   <label class="label_spacer">Last request at:</label>
   <%=h @user.last_request_at %>
 </div>
 
-<div >
+<div>
   <label class="label_spacer">Last login at:</label>
   <%=h @user.last_login_at %>
 </div>
 
-<div >
+<div>
   <label class="label_spacer">Current login at:</label>
   <%=h @user.current_login_at %>
 </div>
 
-<div >
+<div>
   <label class="label_spacer">Last login ip:</label>
   <%=h @user.last_login_ip %>
 </div>
 
-<div >
+<div>
   <label class="label_spacer">Current login ip:</label>
   <%=h @user.current_login_ip %>
 </div>
+
+<div class="mt20 center"><%= link_to "Change email or password", :action => :edit %>
