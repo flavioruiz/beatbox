@@ -50,16 +50,14 @@ class Search
   def find_by_api(params)
     candidates = []
 
-    if name = params[:artist_name]
-      candidates += repository.find_all do |entry|
-        match_string(name,entry[:media][:artist_name])
-      end
-    end
-
-    if name = params[:album_name]
-      candidates += repository.find_all do |entry|
-        match_string(name,entry[:media][:album_name])
-      end
+    if params[:artist_name] and params[:album_name]
+      candidates << {
+        :results => {
+          :url      => @itunes.album_url_by_name(params[:album_name], params[:artist_name]),
+          :provider => :itunes,
+          :label    => 'buy from iTunes'
+        }
+      }
     end
 
     offers = candidates.map { |x| x[:results] }.flatten
