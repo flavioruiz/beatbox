@@ -70,7 +70,7 @@ class Search
           :provider => :itunes,
           :label    => 'Buy from iTunes'
         }
-      end
+      }
 
       candidates << {
         :results => {
