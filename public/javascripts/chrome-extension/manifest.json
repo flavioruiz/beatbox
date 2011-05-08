@@ -1,0 +1,14 @@
+{
+  "name": "The Buy Button",
+  "version": "0.2",
+  "description": "buy from the artist",
+  "permissions": ["http://thebuybutton.com/"],
+  "background_page": "background.html",
+  "content_scripts": [
+    {
+      "matches": ["http://somafm.com/*"],
+      "js": ["jquery.js", "thebuybutton.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

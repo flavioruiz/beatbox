@@ -1,0 +1,33 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      function fetchBuyButton(callback,url) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(data) {
+          if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+              var data = JSON.parse(xhr.responseText);
+              callback(data);
+            } else {
+              callback(null);
+            }
+          }
+        }
+        xhr.open('GET', url, true);
+        xhr.send();
+      };
+
+      function onRequest(request, sender, callback) {
+        if (request.action == 'fetchBuyButton') {
+          fetchBuyButton(callback,request.url);
+        }
+      };
+
+      // Wire up the listener.
+      chrome.extension.onRequest.addListener(onRequest);
+    </script>
+  </body>
+</html>
+
