@@ -69,6 +69,7 @@ body {
     height:40px;
 }
 
+.fieldWithErrors,
 .label_tag,
 .label_spacer {
     width: 200px;
@@ -238,4 +239,11 @@ table th {
 }
 #body_of_results a {
   
+}
+
+.field_error {
+    width: 100%;
+    text-align: center;
+    color: red;
+    height: 35px;
 }
