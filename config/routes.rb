@@ -4,6 +4,15 @@ ActionController::Routing::Routes.draw do |map|
     api.map('/api/resolve', :action => :resolve)
   end
 
+  map.resource(:user_session)
+  map.resource(:account, :controller => :users)
+  map.resources(:users)
+
+  map.connect("/search", :controller => :search, :method => :index)
+  map.connect("/search/search_results", :controller => :search, :method => :search_results)
+
+  map.root(:controller => :search, :action => :index)
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

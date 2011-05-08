@@ -50,11 +50,13 @@ body {
     font-family:Verdana;
     color:#787878;
 }
-.search_form {
+
+.content {
     width:100%;
     border:5px solid orange;
     background-color:#efefef;
 }
+
 .section {
     height:40px;
 }
@@ -69,7 +71,8 @@ body {
     height:28px;
     font-size:20px;
 }
-.search_form input[type='submit'] {
+
+input[type='submit'] {
     background-color: orange;
     border: none;
     color: white;
@@ -102,3 +105,24 @@ body {
 .mt20 {
     margin-top:20px;
 }
+
+#header {
+  width:100%;
+  height:40px;
+}
+
+#header ul.header-left {
+  float:left;
+  width:50%;
+}
+
+#header ul.header-right {
+  float:right;
+  width:50%;
+  text-align:right;
+}
+
+#header li {
+  display:inline;
+}
+
