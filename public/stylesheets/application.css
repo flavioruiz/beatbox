@@ -226,3 +226,12 @@ table th {
 #header a:hover {
   text-decoration:underline;
 }
+
+.offer-section {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.offer-section table {
+  width: 100%;
+}
