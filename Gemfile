@@ -10,7 +10,7 @@ end
 
 group :development, :test do
   gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'factory_girl'
   gem 'rspec-rails-w-factory_girl'
 end

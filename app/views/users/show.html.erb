@@ -6,33 +6,8 @@
 </div>
 
 <div>
-  <label class="label_spacer">Login count:</label>
-  <%=h @user.login_count %>
+  <label class="label_spacer">Artist Name:</label>
+  <%=h @user.artist_name %>
 </div>
 
-<div>
-  <label class="label_spacer">Last request at:</label>
-  <%=h @user.last_request_at %>
-</div>
-
-<div>
-  <label class="label_spacer">Last login at:</label>
-  <%=h @user.last_login_at %>
-</div>
-
-<div>
-  <label class="label_spacer">Current login at:</label>
-  <%=h @user.current_login_at %>
-</div>
-
-<div>
-  <label class="label_spacer">Last login ip:</label>
-  <%=h @user.last_login_ip %>
-</div>
-
-<div>
-  <label class="label_spacer">Current login ip:</label>
-  <%=h @user.current_login_ip %>
-</div>
-
-<div class="mt20 center"><%= link_to "Change email or password", :action => :edit %>
+<div class="mt20 center"><%= link_to "Change email, password or name", :action => :edit %>

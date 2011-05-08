@@ -29,3 +29,14 @@ config.action_mailer.delivery_method = :test
 
   config.gem 'rspec-rails-w-factory_girl', :version => '>= 1.3.2.1', :lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails-w-factory_girl'))
   config.gem 'factory_girl', :lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/factory_girl'))
+
+BEATMAP = {
+  :rovi => {
+    :url         => 'http://api.rovicorp.com',
+    :key         => 'a26838bw349af7752zr796a7',
+    :secret      => 'YGvUSeMXx8'
+  },
+  :itunes => {
+    :url => 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/wa'
+  }
+}
