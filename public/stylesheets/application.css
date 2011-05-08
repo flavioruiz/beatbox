@@ -58,12 +58,12 @@ body {
 .section {
     height:40px;
 }
-.search_form label {
+.label_tag {
     width:40%;
     text-align:right;
     display:inline-block;
 }
-.search_form input[type='text'] {
+.text_field {
     width:35%;
     text-align:left;
     height:28px;
