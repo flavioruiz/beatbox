@@ -76,10 +76,14 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
-    function closeForm() {
+    function clearForm() {
       $('#lbuild_site').val('');
       $('#lbuild_label').val('');
       $('#lbuild_uri').val('');
+    }
+
+    function closeForm() {
+      clearForm();
       $('#new-location-form').fadeOut('fast');
     }
 
@@ -135,6 +139,7 @@
       row.append(col);
 
       $('.location-list tbody').append(row);
+      clearForm();
 
       return false;
     });

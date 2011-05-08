@@ -23,8 +23,8 @@ class ITunes < Base
     results = search(:term => album, :entity => 'album')
 
     results.each do |result|
-      next unless artist.match(result['artistName'])
-      next unless album.match(result['collectionName'])
+      next unless result['artistName'].match(artist)
+      next unless result['collectionName'].match(album)
 
       return result['collectionViewUrl']
     end
