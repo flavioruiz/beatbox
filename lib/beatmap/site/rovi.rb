@@ -49,7 +49,7 @@ class Rovi < Base
       }
     end
 
-    return nil
+    return {}
   end
 
   def find_artist_by_name(artist)
@@ -67,7 +67,7 @@ class Rovi < Base
       }
     end
 
-    return nil
+    return {}
   end
 
 end
