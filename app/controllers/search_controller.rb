@@ -3,6 +3,6 @@ class SearchController < ApplicationController
   end
 
   def search_results
-    render :partial => 'search_results', :locals => { :response => current_search.resolve(params) }
+    render :partial => 'search_results', :locals => { :response_data => current_search.resolve(params) }
   end
 end
