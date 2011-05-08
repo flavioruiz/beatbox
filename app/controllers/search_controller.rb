@@ -3,6 +3,6 @@ class SearchController < ApplicationController
   end
 
   def search_results
-    render :partial => :search_results
+    render :partial => 'search_results'
   end
 end
