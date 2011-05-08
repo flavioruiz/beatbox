@@ -3,6 +3,6 @@ class SearchController < ApplicationController
   end
 
   def search_results
-    render(:json => current_search.resolve(params) })
+    render(:json => current_search.resolve(params))
   end
 end
