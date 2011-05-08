@@ -61,8 +61,9 @@ class Search
           itunes_url ||= @itunes.artist_url_by_name(params[:artist_name])
         end
       rescue Timeout::Error => e
-        itunes_url = "itms://phobos.apple.com/WebObjects/MZSearch.woa/wa/advancedSearchResults?artistTerm=#{CGI.escape(params[:artist_name])}&albumTerm=#{CGI.escape(params[:album_name])}"
       end
+
+      itunes_url ||= "itms://phobos.apple.com/WebObjects/MZSearch.woa/wa/advancedSearchResults?artistTerm=#{CGI.escape(params[:artist_name])}&albumTerm=#{CGI.escape(params[:album_name])}"
 
       candidates << {
         :results => {
