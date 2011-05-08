@@ -43,6 +43,7 @@
            $enclosure = $('#results');
            $enclosure.show();
            $container = $('#body_of_results');
+           $container.text(''); 
 
            if (response_data.length == 0) {
              $enclosure.removeClass('success').removeClass('fail').addClass('fail');
