@@ -33,18 +33,15 @@ class Search
       offers = offers.scoped(:conditions => [ "offers.name LIKE ?", "%#{x}%"])
     end
 
-    offers = offers.first(5).map do |offer|
-      locations = offer.locations.map do |location|
-        {
-          :provider => location.site  ,
-          :label    => location.label ,
-          :url      => location.label ,
-        }
-      end
-      { :results => locations }
-    end
+    return [] if offers.count.zero?
 
-    return offers
+    offers.first.locations.map do |location|
+      {
+        :provider => location.site  ,
+        :label    => location.label ,
+        :url      => location.uri   ,
+      }
+    end
   end
 
   def find_by_api(params)
