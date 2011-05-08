@@ -41,6 +41,7 @@
      $(document).ready(function(){
        $('#submit').click(function(){
          var data = $('#search_form').serialize();
+         console.log(data);
       beatbox.search(data, function(response_data) {
         $container = $('#results');
 
