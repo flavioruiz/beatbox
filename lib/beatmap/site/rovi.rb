@@ -38,8 +38,8 @@ class Rovi < Base
       album_title = result['album']['title']
       artist_name = result['album']['primaryArtists']['AlbumArtist']['name']
 
-      next unless album_title.match(album)
-      next unless artist_name.match(artist)
+      next unless album.match(album_title)
+      next unless artist.match(artist_name)
 
       amg_album_id = result['album']['ids']['amgPopId']
 
@@ -59,7 +59,7 @@ class Rovi < Base
     results.each do |result|
       next if result['name'].nil?
       artist_name = result['name']['name']
-      next unless artist_name.match(artist)
+      next unless artist.match(artist_name)
 
       amg_artist_id = result['name']['ids']['amgPopId']
 
