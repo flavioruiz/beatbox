@@ -1,7 +1,6 @@
 <h2 class="mb20">Edit My Account</h2>
 
 <% form_for @user, :url => account_path do |f| %>
-  <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
   <div class="section form_control">
     <%= f.submit "Update", :class => :rounded_corners %>

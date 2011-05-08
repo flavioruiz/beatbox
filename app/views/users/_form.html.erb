@@ -1,12 +1,17 @@
+<%= field_error_message(@user, :base) %>
+
 <div class="section">
   <%= form.label :email, 'Email', :class => :label_tag %>
   <%= form.text_field :email %>
 </div>
+<%= field_error_message(@user, :email) %>
 <div class="section">
   <%= form.label :password, form.object.new_record? ? 'Password' : "Change password", :class => :label_tag %>
   <%= form.password_field :password %>
 </div>
+<%= field_error_message(@user, :password) %>
 <div class="section">
   <%= form.label :password_confirmation, 'Password Confirmation', :class => :label_tag %>
   <%= form.password_field :password_confirmation %>
 </div>
+<%= field_error_message(@user, :password_confirmation) %>

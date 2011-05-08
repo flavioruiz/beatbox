@@ -1,17 +1,18 @@
 <h2>Login</h2>  
+<%= field_error_message(@user_session, :base) %>
 
 <% form_for @user_session, :url => user_session_path do |f| %>
-  <%= f.error_messages %>
-
   <div class="section">
     <%= f.label :email,"Email", :class => :label_tag %>
     <%= f.text_field :email ,:class => :text_field %>
   </div>
+  <%= field_error_message(@user_session, :email) %>
 
   <div class="section">
     <%= f.label :password,"Password", :class => :label_tag %>
     <%= f.password_field :password , :class => :text_field%>
   </div>
+  <%= field_error_message(@user_session, :password) %>
 
   <div class="section">
     <label class="label_spacer"></label>
