@@ -54,7 +54,7 @@ class Search
 
       itunes_url = nil
       begin
-        Timeout::timeout(10) do
+        Timeout::timeout(5) do
           amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amgAlbumId]
 
           itunes_url = amgAlbumId ? @itunes.album_url_by_id(amgAlbumId.split(' ').last) : nil
