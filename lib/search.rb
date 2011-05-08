@@ -55,15 +55,17 @@ class Search
       itunes_url = amgAlbumId ? @itunes.album_url_by_id(amgAlbumId.split(' ').last) : nil
       itunes_url ||= @itunes.album_url_by_name(params[:album_name], params[:artist_name])
       itunes_url ||= @itunes.artist_url_by_name(params[:artist_name])
-      itunes_url ||= "#{BEATMAP[:itunes][:url]}/wsSearch?term=#{search_term}"
+      # itunes_url ||= "#{BEATMAP[:itunes][:url]}/wsSearch?term=#{search_term}"
 
-      candidates << {
-        :results => {
-          :url      => itunes_url,
-          :provider => :itunes,
-          :label    => 'Buy from iTunes'
+      if itunes_url
+        candidates << {
+          :results => {
+            :url      => itunes_url,
+            :provider => :itunes,
+            :label    => 'Buy from iTunes'
+          }
         }
-      }
+      end
 
       candidates << {
         :results => {
