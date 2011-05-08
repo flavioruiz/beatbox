@@ -1,0 +1,6 @@
+<h1>Offer <%= h(@offer.name) %></h1>
+<% form_for @offer, :url => offer_path(@offer) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit("Update", :class => :rounded_corner ) %>
+<% end %>
