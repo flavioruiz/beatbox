@@ -44,10 +44,15 @@
        $('#submit').click(function(){
          var data = $('#search_form').serialize();
          $.post('search/search_results', data, function(response_data){
-            $('#results').html(response_data);
-           console.info(response_data);
+          response_data['repository'].each(function(){
+            console.log(this['results']['label']); 
+          });
+
+
+           /*$('#results').html(response_data);
+    
            });
-         return false;
+         return false;*/
         }); 
        });
    function parseResponse(response) {
