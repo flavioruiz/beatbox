@@ -32,14 +32,14 @@
     beatbox.search({ artist_name: 'DJ Quik' }, function(data) {
       $container = $('#buy-links');
 
-      if (data.length == 0) {
+      if (data.offers.length == 0) {
         $container.text('Not available online.');
         return;
       }
 
       $container.text('Buy: ');
       
-      jQuery.each(data, function(index, r) {
+      jQuery.each(data.offers, function(index, r) {
         var $a = $('<a>');
         $a.text(r.label);
         $a.attr('href', r.url);
