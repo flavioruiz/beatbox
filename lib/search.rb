@@ -51,10 +51,11 @@ class Search
     candidates = []
 
     if params[:artist_name] and params[:album_name]
-      amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amg_album_id].split(' ').last
+      amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amgAlbumId]
 
-      itunes_url = @itunes.album_url_by_id(amgAlbumId)
+      itunes_url = amgAlbumId ? @itunes.album_url_by_id(amgAlbumId.split(' ').last) : nil
       itunes_url ||= @itunes.album_url_by_name(params[:album_name], params[:artist_name])
+      itunes_url ||= @itunes.artist_url_by_name(params[:artist_name])
 
       candidates << {
         :results => {
