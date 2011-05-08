@@ -6,11 +6,11 @@ module Site
 class ITunes < Base
 
   def lookup(params)
-    self.class.get(@config[:url] + '/wsLookup', :query => params)['results']
+    self.class.get(@config[:url] + '/wsLookup', :query => params)['results'] || []
   end
 
   def search(params)
-    self.class.get(@config[:url] + '/wsSearch', :query => params)['results']
+    self.class.get(@config[:url] + '/wsSearch', :query => params)['results'] || []
   end
 
   def album_url_by_id(amgAlbumId)
