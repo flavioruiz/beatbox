@@ -164,6 +164,15 @@ h2 {
   margin-bottom: 10px;
 }
 
+h3 {
+  font-size: 125%;
+  margin-bottom: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 /* Corner position button quick fixes */
 #content {
   position: relative;
@@ -177,6 +186,27 @@ h2 {
   -webkit-border-radius: 10px 0 5px 0; /* Safari, Chrome */
   border-radius: 10px 0 5px 0; /* CSS3 */
 }
+
+table {
+  text-align: left;
+  table-layout: fixed;
+}
+
+table th, td {
+  padding: 4px 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+table tr:first-child td {
+  padding-top: 10px;
+}
+
+table th {
+  border-bottom: 2px solid orange;
+}
+
 .success {
   border-color:green;
 }
