@@ -53,7 +53,7 @@ class Search
       search_term = CGI.escape("#{params[:artist_name]} #{params[:album_name]}")
 
       begin
-        Timeout::timeout(5) do
+        Timeout::timeout(10) do
           amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amgAlbumId]
 
           itunes_url = amgAlbumId ? @itunes.album_url_by_id(amgAlbumId.split(' ').last) : nil
