@@ -1,36 +1,36 @@
-<p>
-  <b>Login:</b>
+<h2>Account</h2>
+
+<div >
+  <label class="label_spacer">Login:</label>
   <%=h @user.email %>
-</p>
+</div>
 
-<p>
-  <b>Login count:</b>
+<div >
+  <label class="label_spacer">Login count:</label>
   <%=h @user.login_count %>
-</p>
+</div>
 
-<p>
-  <b>Last request at:</b>
+<div >
+  <label class="label_spacer">Last request at:</label>
   <%=h @user.last_request_at %>
-</p>
+</div>
 
-<p>
-  <b>Last login at:</b>
+<div >
+  <label class="label_spacer">Last login at:</label>
   <%=h @user.last_login_at %>
-</p>
+</div>
 
-<p>
-  <b>Current login at:</b>
+<div >
+  <label class="label_spacer">Current login at:</label>
   <%=h @user.current_login_at %>
-</p>
+</div>
 
-<p>
-  <b>Last login ip:</b>
+<div >
+  <label class="label_spacer">Last login ip:</label>
   <%=h @user.last_login_ip %>
-</p>
+</div>
 
-<p>
-  <b>Current login ip:</b>
+<div >
+  <label class="label_spacer">Current login ip:</label>
   <%=h @user.current_login_ip %>
-</p>
-
-<%= link_to 'Edit', edit_account_path %>
+</div>
