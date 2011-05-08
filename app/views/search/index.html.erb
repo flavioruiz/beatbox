@@ -55,11 +55,14 @@
            $container.text('Buy: ');
 
            jQuery.each(response_data, function(index, r) {
+             var $section = $('<div>');
+             container.attr('class':'section');
              var $a = $('<a>');
              $a.text(r.label);
              $a.attr('href', r.url);
+             $section.append($a); 
 
-             $container.append($a, '&nbsp;&nbsp;'); 
+             $container.append($secton); 
              });
       });
            return false;
