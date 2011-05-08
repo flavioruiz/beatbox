@@ -36,17 +36,23 @@
       <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
     </div>
   <% end %>
-<div id="results">
+<form id="results">
     
-</div>
+</form>
    <script type="text/javascript" charset="utf-8">
      $(document).ready(function(){
        $('#submit').click(function(){
-         var data = $('search_form').serialize();
+         var data = $('#search_form').serialize();
          $.post('search/search_results', data, function(response_data){
             $('#results').html(response_data);
+           console.info(response_data);
            });
          return false;
         }); 
        });
+   function parseResponse(response) {
+     response.each(function(){
+        
+     });  
+   } 
    </script>
