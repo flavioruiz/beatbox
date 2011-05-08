@@ -1,4 +1,4 @@
-<form id="search_form" class="search_form rounded_corners" method="post" action="search_results">
+<% form_tag url_for(:controller => :search, :action => :search_results ), :id => "search_form", :class => "search_form rounded_corners"  do %>
    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
     <h2 class='h2 center mb20 mt20'>Target Information</h2>  
@@ -21,26 +21,32 @@
     <div class="section">
         <%= label_tag 'track_isrc', 'Track ISRC' %> 
         <%= text_field :search, :track_isrc  %>
-    </div>
+      </div>
+    <!-- 
     <h2 class='h2 center mb20 mt20'>Affiliate Information</h2>
     <div class="section">
-        <%= label_tag 'amazon_affiliate', 'Amazon' %> 
-        <%= text_field :search, :amazon_affiliate  %>
+        <%#= label_tag 'amazon_affiliate', 'Amazon' %> 
+        <%#= text_field :search, :amazon_affiliate  %>
     </div>
     <div class="section">
-        <%= label_tag 'itunes_affiliate', 'iTunes' %> 
-        <%= text_field :search, :itunes_affiliate  %>
-    </div>
+        <%#= label_tag 'itunes_affiliate', 'iTunes' %> 
+        <%#= text_field :search, :itunes_affiliate  %>
+      </div> -->
     <div class="section">
-        <%= submit_tag 'Submit', :class => 'rounded_corners mt20' %>
+      <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
     </div>
-</form>
-
+  <% end %>
 <div id="results">
     
 </div>
    <script type="text/javascript" charset="utf-8">
      $(document).ready(function(){
-   
+       $('#submit').click(function(){
+         var data = $('search_form').serialize();
+         $.post('search/search_results', data, function(response_data){
+            $('#results').html(response_data);
+           });
+         return false;
+        }); 
        });
    </script>
