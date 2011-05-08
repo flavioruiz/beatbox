@@ -1,46 +1,58 @@
-<%= form.label :name %><br />
-<%= form.text_field :name %><br />
+<div class="section">
+  <%= form.label :name, 'Name', :class => :label_tag %>
+  <%= form.text_field :name %>
+</div>
 
-<%= form.label :amg_id  %>
-<%= form.text_field :amg_id %><br />
+<div class="section">
+  <%= form.label :amg_id, 'AMG Id', :class => :label_tag %>
+  <%= form.text_field :amg_id %>
+</div>
 
-<table class="location-list">
-  <caption>Locations <%= link_to("add",'#', :class => 'location-build') %></caption>
+<h3><%= link_to("Add location",'#', :class => 'location-build') %></h3>
+
+<div id="new-location-form" style="display: none;">
+  <div class="section">
+    <%= label_tag(:lbuild_site,"Site", :class => :label_tag) %>
+    <%= text_field_tag(:lbuild_site) %>
+  </div>
+  <div class="section">
+    <%= label_tag(:lbuild_label,"Label", :class => :label_tag) %>
+    <%= text_field_tag(:lbuild_label) %>
+  </div>
+  <div class="section">
+    <%= label_tag(:lbuild_uri,"URI", :class => :label_tag) %>
+    <%= text_field_tag(:lbuild_uri) %>
+  </div>
+  <div class="section center">
+    <%= link_to("Add", '#', :class => 'location-add') %>
+    &nbsp; or &nbsp;
+    <%= link_to("Cancel", '#', :class => 'location-cancel') %>
+  </div>
+</div>
+
+<table class="location-list" style="width: 80%; margin: 0 auto;">
 
   <thead>
-    <th>Site </th>
+    <th>Site</th>
     <th>Label</th>
-    <th>URI  </th>
-    <th></th>
+    <th>URI</th>
+    <th width="30"></th>
   </thead>
   <tbody>
 
-    <tr id="new-location-form" style="display:none">
-      <td colspan="4">
-        <div class="section">
-          <%= label_tag(:lbuild_site,"Site") %>
-          <%= text_field_tag(:lbuild_site) %>
-        </div>
-        <div class="section">
-          <%= label_tag(:lbuild_label,"Label") %>
-          <%= text_field_tag(:lbuild_label) %>
-        </div>
-        <div class="section">
-          <%= label_tag(:lbuild_uri,"URI") %>
-          <%= text_field_tag(:lbuild_uri) %>
-        </div>
-        <div class="section">
-          <%= link_to("add", '#', :class => 'location-add') %>
-          <%= link_to("cancel", '#', :class => 'location-cancel') %>
-        </div>
+    <% if @offer.locations.size == 0 %>
+    <tr>
+      <td id="empty-message" colspan="4" class="center">
+        No locations added yet.
       </td>
     </tr>
+    <% end %>
 
     <% for location in @offer.locations %>
       <tr>
         <td><%= h(location.site) %></td>
         <td><%= h(location.label) %></td>
-        <td><%= link_to("link",location.uri) %></td>
+        <td><%= link_to(location.uri) %></td>
         <td>
           <%= hidden_field_tag("locations[]",location.id)   %>
           <%= link_to("x",'#', :class => 'location-remove') %>
@@ -69,7 +81,7 @@
       return false;
     });
 
-    $('.location-list a.location-build').click(function(){
+    $('a.location-build').click(function(){
       $('#new-location-form').fadeIn('fast');
       return false;
     });
@@ -79,7 +91,10 @@
       return false;
     });
 
-    $('.location-list a.location-add').click(function(){
+    $('a.location-add').click(function(){
+      // Remove the empty message.
+      $('.location-list #empty-message').remove();
+
       var site  = $('#lbuild_site').val();
       var label = $('#lbuild_label').val();
       var uri   = $('#lbuild_uri').val();
@@ -91,7 +106,7 @@
       row.append(col)
 
       row.append($('<td></td>').html(label));
-      row.append($('<td></td>').html('<a href="'+uri+'">link</a>'));
+      row.append($('<td></td>').html('<a href="'+uri+'">'+uri+'</a>'));
 
       var input  = '<input type="hidden" name="lnew[][site]"  value="' + site  + '" />';
           input += '<input type="hidden" name="lnew[][label]" value="' + label + '" />';

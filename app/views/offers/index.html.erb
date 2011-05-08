@@ -1,12 +1,14 @@
-<div>
+<h2 class="mb20">Offers</h2>
 
-  <div class="offers-header">
-    <ul>
-      <li><%= link_to("create",new_offer_path) %></li>
-    </ul>
-  </div>
+<% if @offers.size == 0 %>
+  <div class="center">You have no offers. Would you like to <span class="bold"><%= link_to "add one", new_offer_path %>?</span></div>
+<% else %>
 
-  <table>
+  <p class="description mb20 center">
+    Below is a list of offers you have currently setup. <%= link_to "Add another", new_offer_path %>?
+  </p>
+
+  <table style="width: 400px; margin: 0 auto;">
     <thead>
       <th>Album Name</th>
       <th></th>
@@ -26,4 +28,4 @@
     </tbody>
 
   </table>
-</div>
+<% end %>
