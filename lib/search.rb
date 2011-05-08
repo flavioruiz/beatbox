@@ -49,10 +49,12 @@ class Search
   def find_by_api(params)
     candidates = []
 
+    itunes_url = nil
+    search_term = nil
+
     if params[:artist_name] and params[:album_name]
       search_term = CGI.escape("#{params[:artist_name]} #{params[:album_name]}")
 
-      itunes_url = nil
       begin
         Timeout::timeout(5) do
           amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amgAlbumId]
@@ -65,24 +67,26 @@ class Search
       end
 
       itunes_url ||= "itms://phobos.apple.com/WebObjects/MZSearch.woa/wa/advancedSearchResults?artistTerm=#{CGI.escape(params[:artist_name])}&albumTerm=#{CGI.escape(params[:album_name])}"
-
-      candidates << {
-        :results => {
-          :url      => itunes_url,
-          :provider => :itunes,
-          :label    => 'Buy from iTunes'
-        }
-      }
-
-      candidates << {
-        :results => {
-          :url      => "http://www.amazon.com/s/?url=search-alias%3Daps&field-keywords=#{search_term}&tag=p4kalbrevs-20",
-          :provider => :amazon,
-          :label    => 'Buy from Amazon'
-        }
-      }
-
+    elsif params[:artist_name]
+      search_term = CGI.escape("#{params[:artist_name]} #{params[:album_name]}")
+      itunes_url ||= "itms://phobos.apple.com/WebObjects/MZSearch.woa/wa/advancedSearchResults?artistTerm=#{CGI.escape(params[:artist_name])}&albumTerm=#{CGI.escape(params[:album_name])}"
     end
+
+    candidates << {
+      :results => {
+        :url      => itunes_url,
+        :provider => :itunes,
+        :label    => 'Buy from iTunes'
+      }
+    }
+
+    candidates << {
+      :results => {
+        :url      => "http://www.amazon.com/s/?url=search-alias%3Daps&field-keywords=#{search_term}&tag=p4kalbrevs-20",
+        :provider => :amazon,
+        :label    => 'Buy from Amazon'
+      }
+    }
 
     offers = candidates.map { |x| x[:results] }.flatten
 
