@@ -34,6 +34,7 @@ class Rovi < Base
     results = search(album, 'album')
 
     results.each do |result|
+      next if result['album'].nil?
       album_title = result['album']['title']
       artist_name = result['album']['primaryArtists']['AlbumArtist']['name']
 
@@ -56,6 +57,7 @@ class Rovi < Base
     results = search(artist, 'artist')
 
     results.each do |result|
+      next if result['name'].nil?
       artist_name = result['name']['name']
       next unless artist_name.match(artist)
 
