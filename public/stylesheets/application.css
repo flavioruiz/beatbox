@@ -225,9 +225,6 @@ table th {
   border-radius: 10px;
   line-height: 1.75em;
 }
-#header a:hover {
-  text-decoration:underline;
-}
 
 .offer-section {
   width: 400px;
