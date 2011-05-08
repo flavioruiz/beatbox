@@ -2,6 +2,7 @@
 var beatbox = (function() {
 
   // consts
+  var END_POINT = "http://beatbox.heroku.com/api";
   var VALID_AFFILIATES_PARAMS =  [
     'amazon', 
     'itunes', 
@@ -19,11 +20,9 @@ var beatbox = (function() {
 
   // "instance"
   var _affiliateCodes;
-  var _end_point;
  
   function init(affiliates, end_point) {
     _affiliateCodes = cleanParams(VALID_AFFILIATES_PARAMS, affiliates);
-    _end_point = end_point + '/api';
   }
 
   function search(params, onComplete) {
@@ -40,7 +39,7 @@ var beatbox = (function() {
     jQuery.extend(params, affiliates);
 
     jQuery.ajax({
-      url: _end_point + '/resolve',
+      url: END_POINT + '/resolve',
       dataType: 'jsonp',
       data: params,
       success: onComplete
