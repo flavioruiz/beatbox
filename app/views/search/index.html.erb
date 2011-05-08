@@ -42,18 +42,17 @@
          beatbox.search({ 'artist_name' : $('#search_artist_name').val(), 'album_name' : $('#search_album_name').val()}, function(response_data) {
            $enclosure = $('#results');
            $enclosure.show();
-console.log(response_data['results']);
            $container = $('#body_of_results');
 
-           if (response_data.results.length == 0) {
-           $enclosure.removeClass('success').removeClass('fail').addClass('fail');
-           $container.text('Not available online.');
-           return;
+           if (response_data.length == 0) {
+             $enclosure.removeClass('success').removeClass('fail').addClass('fail');
+             $container.text('Not available online.');
+             return;
            }
 
            $enclosure.removeClass('success').removeClass('fail').addClass('success');
 
-           jQuery.each(response_data.results, function(index, r) {
+           jQuery.each(response_data, function(index, r) {
              var $a = $('<a>');
              $a.text(r.label);
              $a.attr('href', r.url);
