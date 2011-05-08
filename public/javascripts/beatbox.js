@@ -3,7 +3,7 @@ var beatbox = (function() {
 
   // consts
   var END_POINT = "http://beatbox.heroku.com/api";
-  var END_POINT = "http://localhost:3000/api";
+  //var END_POINT = "http://localhost:3000/api";
   var VALID_AFFILIATES_PARAMS =  [
     'amazon', 
     'itunes', 
