@@ -40,9 +40,7 @@
    <script type="text/javascript" charset="utf-8">
      $(document).ready(function(){
        $('#submit').click(function(){
-         var data = $('#search_form').serialize();
-         console.log(data);
-         beatbox.search(data, function(response_data) {
+         beatbox.search({artist_name : $('#search_artist_name'), album_name : $('#search_album_name')}, function(response_data) {
            $container = $('#results');
 
            if (response_data.length == 0) {
@@ -60,17 +58,6 @@
              $container.append($a, '&nbsp;&nbsp;'); 
              });
       });
-  /*         $.post('search/search_results', data, function(response_data){
-            $.each(response_data['repository'][0]['results'],(function(index, element){
-                console.log(element.label);
-                console.log(element.provider);
-                console.log(element.url);
-            }));
-
-
-             //$('#results').html(response_data);
-      
-             }); */
            return false;
           }); 
          });
