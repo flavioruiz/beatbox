@@ -1,12 +1,9 @@
-<div class='section'>
-  <%= form.label :email' %>
-  <%= form.text_field :email, :class => 'text_field' %>
-</div>
-<div class='section'>
-  <%= form.label :password, form.object.new_record? ? nil : "Change password" %>
-  <%= form.password_field :password, :class => 'text_field' %>
-</div>
-<div class='section'>
-  <%= form.label :password_confirmation %>
-  <%= form.password_field :password_confirmation, :class => 'text_field' %>
-</div>
+<%= form.label :email %><br />
+<%= form.text_field :email %><br />
+<br />
+<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
+<%= form.password_field :password %><br />
+<br />
+<%= form.label :password_confirmation %><br />
+<%= form.password_field :password_confirmation %><br />
+
