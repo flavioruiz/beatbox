@@ -34,20 +34,24 @@
     <%= submit_tag 'Submit', :class => 'rounded_corners mt20', :id => 'submit' %>
   </div>
 <% end %>
-<div id="results">
-    
-</div>
+
+
    <script type="text/javascript" charset="utf-8">
      $(document).ready(function(){
        $('#submit').click(function(){
-         beatbox.search({artist_name : $('#search_artist_name'), album_name : $('#search_album_name')}, function(response_data) {
-           $container = $('#results');
+         beatbox.search({ 'artist_name' : $('#search_artist_name').val(), 'album_name' : $('#search_album_name').val()}, function(response_data) {
+           $enclosure = $('#results');
+           $enclosure.show();
+
+           $container = $('#body_of_results');
 
            if (response_data.length == 0) {
+           $enclosure.removeClass('success').removeClass('fail').addClass('fail');
            $container.text('Not available online.');
            return;
            }
 
+           $enclosure.removeClass('success').removeClass('fail').addClass('success');
            $container.text('Buy: ');
 
            jQuery.each(response_data, function(index, r) {

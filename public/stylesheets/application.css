@@ -206,3 +206,12 @@ table tr:first-child td {
 table th {
   border-bottom: 2px solid orange;
 }
+
+.success {
+  border-color:green;
+}
+.fail {
+  border-color:red;
+}
+#header a {
+}

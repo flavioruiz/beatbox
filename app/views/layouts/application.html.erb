@@ -8,7 +8,6 @@
   <%= stylesheet_link_tag 'application' %>
   <script type="text/javascript" charset="utf-8" src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>  
   <script type="text/javascript" src="/javascripts/beatbox.js"></script>
-  <%= javascript_include_tag 'jquery.json-2.2.min' %>
 </head>
 
 <body>
@@ -33,6 +32,11 @@
 
       <div id="content" class="content rounded_corners">
         <%= yield %>
+      </div>
+      <div id="results" style='display:none;' class = 'content rounded_corners mt20'>
+        <h2>Results</h2>
+        <p class="description mb20">Please choose your poison below</p>
+        <div id='body_of_results'></div>
       </div>
 
     </div>    
