@@ -42,7 +42,7 @@
          beatbox.search({ 'artist_name' : $('#search_artist_name').val(), 'album_name' : $('#search_album_name').val()}, function(response_data) {
            $enclosure = $('#results');
            $enclosure.show();
-
+console.log(response_data['results']);
            $container = $('#body_of_results');
 
            if (response_data.results.length == 0) {
