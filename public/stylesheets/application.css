@@ -132,12 +132,12 @@ input[type='submit'] {
 
 #header ul.header-left {
   float:left;
-  width:50%;
+  width:30%;
 }
 
 #header ul.header-right {
   float:right;
-  width:50%;
+  width:70%;
   text-align:right;
 }
 
@@ -234,4 +234,7 @@ table th {
 
 .offer-section table {
   width: 100%;
+}
+#body_of_results a {
+  
 }
