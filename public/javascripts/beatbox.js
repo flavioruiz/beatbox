@@ -2,17 +2,17 @@
 var beatbox = (function() {
 
   // consts
-  var END_POINT = "http://beatbox.heroku.com/api";
-  //var END_POINT = "http://localhost:3000/api";
+  // var END_POINT = "http://beatbox.heroku.com/api";
+  var END_POINT = "http://localhost:3000/api";
   var VALID_AFFILIATES_PARAMS =  [
-    'amazon', 
-    'itunes', 
+    'amazon',
+    'itunes',
     'topspin'
   ];
 
   var VALID_SEARCH_PARAMS = [
     'bbid',
-    'artist_name', 
+    'artist_name',
     'album_name',
     'album_upc',
     'track_name',
@@ -21,7 +21,7 @@ var beatbox = (function() {
 
   // "instance"
   var _affiliateCodes;
- 
+
   function init(affiliates, end_point) {
     _affiliateCodes = cleanParams(VALID_AFFILIATES_PARAMS, affiliates);
   }
@@ -63,8 +63,8 @@ var beatbox = (function() {
 
   return {
     init:  init,
-    search: search 
+    search: search
   };
-        
+
 
 }());

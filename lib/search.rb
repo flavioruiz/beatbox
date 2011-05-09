@@ -52,20 +52,25 @@ class Search
     itunes_url = nil
     search_term = nil
 
-    search_term = CGI.escape("#{params[:artist_name]} #{params[:album_name]}")
+    if params[:artist_name] and params[:album_name]
+      search_term = CGI.escape("#{params[:artist_name]} #{params[:album_name]}")
 
-    begin
-      Timeout::timeout(5) do
-        amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amgAlbumId]
+      begin
+        Timeout::timeout(5) do
+          amgAlbumId = @rovi.find_album_by_name(params[:album_name], params[:artist_name])[:amgAlbumId]
 
-        itunes_url = amgAlbumId ? @itunes.album_url_by_id(amgAlbumId.split(' ').last) : nil
-        itunes_url ||= @itunes.album_url_by_name(params[:album_name], params[:artist_name])
-        itunes_url ||= @itunes.artist_url_by_name(params[:artist_name])
+          itunes_url = amgAlbumId ? @itunes.album_url_by_id(amgAlbumId.split(' ').last) : nil
+          itunes_url ||= @itunes.album_url_by_name(params[:album_name], params[:artist_name])
+          itunes_url ||= @itunes.artist_url_by_name(params[:artist_name])
+        end
+      rescue Timeout::Error => e
       end
-    rescue Timeout::Error => e
-    end
 
-    itunes_url ||= "itms://phobos.apple.com/WebObjects/MZSearch.woa/wa/advancedSearchResults?artistTerm=#{CGI.escape(params[:artist_name])}&albumTerm=#{CGI.escape(params[:album_name])}"
+      itunes_url ||= "itms://phobos.apple.com/WebObjects/MZSearch.woa/wa/advancedSearchResults?artistTerm=#{CGI.escape(params[:artist_name])}&albumTerm=#{CGI.escape(params[:album_name])}"
+    elsif params[:artist_name]
+      search_term ||= CGI.escape("#{params[:artist_name]}")
+      itunes_url ||= "itms://phobos.apple.com/WebObjects/MZSearch.woa/wa/advancedSearchResults?artistTerm=#{CGI.escape(params[:artist_name])}&albumTerm=#{CGI.escape(params[:album_name])}"
+    end
 
     candidates << {
       :results => {
